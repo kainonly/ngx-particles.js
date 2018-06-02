@@ -1,5 +1,5 @@
 import {Component, ElementRef, Input, ViewChild, AfterContentInit, OnDestroy, Output, EventEmitter} from '@angular/core';
-import {ParticlesOptions} from './define';
+import {ParticlesOptions} from './particle/define';
 import {NgxParticlesService} from './ngx-particles.service';
 
 @Component({

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ParticlesOptions} from './define';
+import {ParticlesOptions} from './particle/define';
 import {Particle} from './particle';
 
 @Injectable()
