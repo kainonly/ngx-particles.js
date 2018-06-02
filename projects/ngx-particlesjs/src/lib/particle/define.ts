@@ -12,7 +12,7 @@ export interface ParticleArgs {
   options: ParticleOption;
 }
 
-interface ParticleOption {
+export interface ParticleOption {
   speed: number;
   sizeVariations: number;
   color: string[] | string;

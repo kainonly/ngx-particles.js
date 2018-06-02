@@ -1,17 +1,17 @@
-import {Component, ElementRef, Input, ViewChild, AfterContentInit, OnDestroy, Output, EventEmitter} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, AfterContentInit, OnDestroy, Output, ViewChild} from '@angular/core';
 import {ParticlesOptions} from './particle/define';
-import {NgxParticlesService} from './ngx-particles.service';
+import {NgxParticlesjsService} from './ngx-particlesjs.service';
 
 @Component({
   selector: 'particles',
   template: '<canvas #canvas></canvas>',
 })
-export class NgxParticlesComponent implements AfterContentInit, OnDestroy {
+export class NgxParticlesjsComponent implements AfterContentInit, OnDestroy {
   @Input('config') config: ParticlesOptions = {};
   @ViewChild('canvas') canvas: ElementRef;
-  @Output('action') action: EventEmitter<NgxParticlesService> = new EventEmitter<NgxParticlesService>();
+  @Output('action') action: EventEmitter<NgxParticlesjsService> = new EventEmitter<NgxParticlesjsService>();
 
-  constructor(private ngxParticlesService: NgxParticlesService) {
+  constructor(private ngxParticlesService: NgxParticlesjsService) {
   }
 
   ngAfterContentInit() {
@@ -22,4 +22,5 @@ export class NgxParticlesComponent implements AfterContentInit, OnDestroy {
   ngOnDestroy() {
     this.ngxParticlesService.destory();
   }
+
 }

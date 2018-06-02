@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {ParticlesOptions} from './particle/define';
-import {Particle} from './particle';
+import {Particle} from './particle/particle';
 
 @Injectable()
-export class NgxParticlesService {
+export class NgxParticlesjsService {
   element: HTMLCanvasElement;
   private _context: CanvasRenderingContext2D | null;
   private _options: ParticlesOptions = {
@@ -18,7 +18,7 @@ export class NgxParticlesService {
   private _storage: Particle[] | null;
   private _listener: EventListener | EventListenerObject;
   private _animation: number;
-  private _delay: number | null;
+  private _delay: any;
 
   private static hex2rgb(hex: string) {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -107,7 +107,7 @@ export class NgxParticlesService {
       return;
     }
     this._context = this.element.getContext('2d');
-    const {width, height} = NgxParticlesService.offsetParentSize(this.element);
+    const {width, height} = NgxParticlesjsService.offsetParentSize(this.element);
     this.element.width = width;
     this.element.height = height;
     this.element.style.width = '100%';
@@ -141,7 +141,7 @@ export class NgxParticlesService {
   }
 
   private _resize() {
-    const {width, height} = NgxParticlesService.offsetParentSize(this.element);
+    const {width, height} = NgxParticlesjsService.offsetParentSize(this.element);
     this.element.width = width;
     this.element.height = height;
     if (this._delay) {
@@ -166,7 +166,7 @@ export class NgxParticlesService {
     }
 
     if (this._options.connectParticles) {
-      this._storage.sort(NgxParticlesService.particleCompareFunc);
+      this._storage.sort(NgxParticlesjsService.particleCompareFunc);
       this._updateEdges();
     }
   }
@@ -193,8 +193,8 @@ export class NgxParticlesService {
 
   private _drawEdge(p1: Particle, p2: Particle, opacity: number) {
     const gradient = this._context.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
-    const color1 = NgxParticlesService.hex2rgb(p1.color);
-    const color2 = NgxParticlesService.hex2rgb(p2.color);
+    const color1 = NgxParticlesjsService.hex2rgb(p1.color);
+    const color2 = NgxParticlesjsService.hex2rgb(p2.color);
     gradient.addColorStop(0, 'rgba(' + color1.r + ',' + color1.g + ',' + color1.b + ',' + opacity + ')');
     gradient.addColorStop(1, 'rgba(' + color2.r + ',' + color2.g + ',' + color2.b + ',' + opacity + ')');
     this._context.beginPath();
