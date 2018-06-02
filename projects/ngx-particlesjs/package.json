@@ -1,0 +1,23 @@
+{
+  "name": "ngx-particlesjs",
+  "version": "1.0.2",
+  "description": "A lightweight particle backgrounds plugin for Angular",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kainonly/ngx-particles.js.git"
+  },
+  "keywords": [
+    "particles",
+    "ngx"
+  ],
+  "author": "-kain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kainonly/ngx-particles.js/issues"
+  },
+  "homepage": "https://github.com/kainonly/ngx-particles.js#readme",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  }
+}
