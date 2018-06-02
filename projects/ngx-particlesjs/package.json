@@ -1,6 +1,6 @@
 {
   "name": "ngx-particlesjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A lightweight particle backgrounds plugin for Angular",
   "repository": {
     "type": "git",
