@@ -20,7 +20,7 @@ A lightweight particle backgrounds plugin for Angular
 Import NgxParticlesjsModule
 
 ``` typescript
-import {NgxParticlesjsModule} from 'ngx-particles.js';
+import {NgxParticlesjsService} from "ngx-particlesjs";
 
 @NgModule({
   imports: [
