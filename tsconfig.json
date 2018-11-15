@@ -5,6 +5,7 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    "module": "es2015",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -18,18 +19,10 @@
     ],
     "paths": {
       "ngx-particlesjs": [
-        "dist/ngx-particlesjs",
         "dist/ngx-particlesjs"
       ],
       "ngx-particlesjs/*": [
-        "dist/ngx-particlesjs/*",
         "dist/ngx-particlesjs/*"
-      ],
-      "ngx-particles": [
-        "dist/ngx-particles"
-      ],
-      "ngx-particles/*": [
-        "dist/ngx-particles/*"
       ]
     }
   }

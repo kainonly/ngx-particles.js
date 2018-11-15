@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "particles": {
+    "ngx-particles-demo": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/particles",
+            "outputPath": "dist/ngx-particles-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,9 +25,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/particlesjs/dist/particles.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -52,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "particles:build"
+            "browserTarget": "ngx-particles-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "particles:build:production"
+              "browserTarget": "ngx-particles-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "particles:build"
+            "browserTarget": "ngx-particles-demo:build"
           }
         },
         "test": {
@@ -97,7 +95,7 @@
         }
       }
     },
-    "particles-e2e": {
+    "ngx-particles-demo-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -105,7 +103,12 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "particles:serve"
+            "devServerTarget": "ngx-particles-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngx-particles-demo:serve:production"
+            }
           }
         },
         "lint": {
@@ -130,11 +133,6 @@
           "options": {
             "tsConfig": "projects/ngx-particlesjs/tsconfig.lib.json",
             "project": "projects/ngx-particlesjs/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/ngx-particlesjs/ng-package.prod.json"
-            }
           }
         },
         "test": {
@@ -160,5 +158,5 @@
       }
     }
   },
-  "defaultProject": "particles"
+  "defaultProject": "ngx-particles-demo"
 }
