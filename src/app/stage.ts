@@ -16,8 +16,10 @@ export class Stage {
 
   drawContext() {
     this.ctx.beginPath();
-    this.ctx.arc(100, 75, 50, 0, 2 * Math.PI, false);
-    this.ctx.fillStyle = 'green';
+    this.ctx.arc(100, 75, (1 + Math.random()) * 10, 0, 2 * Math.PI);
+    const color = `rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`;
+    this.ctx.fillStyle = color;
+    this.ctx.strokeStyle = color;
     this.ctx.fill();
     this.ctx.stroke();
   }
