@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {Stage} from './stage';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('stageRef') stageRef: ElementRef;
 
   ngAfterViewInit() {
-    const stage: HTMLCanvasElement = this.stageRef.nativeElement;
-    console.log(stage);
+    const stage: Stage = new Stage(this.stageRef.nativeElement);
+    console.log(stage.getSize());
+    stage.drawContext();
   }
 }
