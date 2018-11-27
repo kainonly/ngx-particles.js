@@ -13,10 +13,11 @@ export class NgxParticlesComponent implements AfterViewInit, OnDestroy {
   private width: number;
   private height: number;
   private particles: Particle[] = [];
+  private animationFrame: any;
 
   ngAfterViewInit() {
-    const canvas = this.stageRef.nativeElement;
-    this.ctx = canvas.getContext('2d');
+    const canvas: HTMLCanvasElement = this.stageRef.nativeElement;
+    this.ctx = canvas.getContext('2d', {alpha: false});
     const {clientWidth, clientHeight} = canvas.parentElement;
     canvas.width = this.width = clientWidth;
     canvas.height = this.height = clientHeight;
@@ -25,11 +26,13 @@ export class NgxParticlesComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.ctx.clearRect(0, 0, this.width, this.height);
+    window.cancelAnimationFrame(this.animationFrame);
   }
 
   private initParticle() {
     const range = [this.width, this.height];
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 100; i++) {
       this.particles[i] = new Particle(range);
     }
   }
@@ -40,6 +43,6 @@ export class NgxParticlesComponent implements AfterViewInit, OnDestroy {
       x.draw(this.ctx);
       x.update();
     }
-    window.requestAnimationFrame(this.drawContext);
+    this.animationFrame = window.requestAnimationFrame(this.drawContext);
   };
 }
