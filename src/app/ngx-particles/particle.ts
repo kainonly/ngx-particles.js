@@ -1,3 +1,5 @@
+import {saveDecimal} from './common';
+
 export class Particle {
   private max_width: number;
   private max_height: number;
@@ -21,13 +23,13 @@ export class Particle {
   }
 
   private initPosition() {
-    this.x = Math.random() * this.max_width;
-    this.y = Math.random() * this.max_height;
+    this.x = saveDecimal(Math.random() * this.max_width);
+    this.y = saveDecimal(Math.random() * this.max_height);
   }
 
   private initSpeed() {
-    this.vx = Math.random() / 2;
-    this.vy = Math.random() / 2;
+    this.vx = saveDecimal(Math.random() / 2);
+    this.vy = saveDecimal(Math.random() / 2);
   }
 
   private initSize() {
