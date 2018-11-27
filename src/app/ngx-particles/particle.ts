@@ -22,6 +22,11 @@ export class Particle {
     this.initColor();
   }
 
+  onRange(range: number[]) {
+    this.max_width = range[0];
+    this.max_height = range[1];
+  }
+
   private initPosition() {
     this.x = saveDecimal(Math.random() * this.max_width);
     this.y = saveDecimal(Math.random() * this.max_height);
