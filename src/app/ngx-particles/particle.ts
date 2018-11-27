@@ -49,14 +49,17 @@ export class Particle {
   }
 
   update() {
+    this.edge();
+    this.x = this.x + this.vx;
+    this.y = this.y + this.vy;
+  }
+
+  private edge() {
     if (this.x + this.vx > this.max_width || this.x + this.vx < 0) {
       this.vx = -this.vx;
     }
     if (this.y + this.vy > this.max_height || this.y + this.vy < 0) {
       this.vy = -this.vy;
     }
-    this.x = this.x + this.vx;
-    this.y = this.y + this.vy;
   }
-
 }
