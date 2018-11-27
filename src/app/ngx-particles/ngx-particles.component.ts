@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, HostListener, Input, OnDestroy, ViewChild} from '@angular/core';
 import {Particle} from './particle';
+import {ParticleArgs} from './common';
 
 @Component({
   selector: 'app-ngx-particles',
@@ -11,14 +12,17 @@ export class NgxParticlesComponent implements AfterViewInit, OnDestroy {
 
   private canvas: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
+  private width: number;
+  private height: number;
   private particles: Particle[] = [];
   private mainAnimationFrame: any;
   private changeAnimationFrame: any;
   private resizing: any = false;
 
   @Input() total = 100;
-  @Input() width: number;
-  @Input() height: number;
+  @Input() default_width: number;
+  @Input() default_height: number;
+  @Input() args?: ParticleArgs;
 
   ngAfterViewInit() {
     this.canvas = this.stageRef.nativeElement;
@@ -36,7 +40,7 @@ export class NgxParticlesComponent implements AfterViewInit, OnDestroy {
 
   @HostListener('window:resize')
   onResize() {
-    if (!this.resizing) {
+    if (!this.resizing && (!this.default_height || !this.default_width)) {
       this.resizing = true;
       if (window.requestAnimationFrame) {
         window.requestAnimationFrame(this.stageChange);
@@ -48,13 +52,13 @@ export class NgxParticlesComponent implements AfterViewInit, OnDestroy {
 
   private initStage() {
     const {clientWidth, clientHeight} = this.canvas.parentElement;
-    if (this.width) {
-      this.canvas.width = this.width;
+    if (this.default_width) {
+      this.canvas.width = this.width = this.default_width;
     } else {
       this.canvas.width = this.width = clientWidth;
     }
-    if (this.height) {
-      this.canvas.height = this.height;
+    if (this.default_height) {
+      this.canvas.height = this.height = this.default_height;
     } else {
       this.canvas.height = this.height = clientHeight;
     }
@@ -63,7 +67,11 @@ export class NgxParticlesComponent implements AfterViewInit, OnDestroy {
   private initParticle() {
     const range = [this.width, this.height];
     for (let i = 0; i < this.total; i++) {
-      this.particles[i] = new Particle(range);
+      this.particles[i] = new Particle(
+        range,
+        (this.args && this.args.speed) ? this.args.speed : 'normal',
+        (this.args && this.args.size) ? this.args.size : 1.5
+      );
     }
   }
 

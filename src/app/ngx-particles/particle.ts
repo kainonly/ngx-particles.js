@@ -13,12 +13,12 @@ export class Particle {
   private size: number;
   private color: string;
 
-  constructor(range: number[]) {
+  constructor(range: number[], speed: 'fast' | 'normal' | 'slow' | number[] = 'normal', size = 1.5) {
     this.max_width = range[0];
     this.max_height = range[1];
     this.initPosition();
-    this.initSpeed();
-    this.initSize();
+    this.initSpeed(speed);
+    this.initSize(size);
     this.initColor();
   }
 
@@ -32,13 +32,31 @@ export class Particle {
     this.y = saveDecimal(Math.random() * this.max_height);
   }
 
-  private initSpeed() {
-    this.vx = saveDecimal(Math.random() / 2);
-    this.vy = saveDecimal(Math.random() / 2);
+  private initSpeed(speed: 'fast' | 'normal' | 'slow' | number[]) {
+    let vi = [];
+    if (typeof speed === 'string') {
+      switch (speed) {
+        case 'fast':
+          vi = [1, 1];
+          break;
+        case 'normal':
+          vi = [2, 2];
+          break;
+        case 'slow':
+          vi = [5, 5];
+          break;
+        default:
+          vi = [2, 2];
+      }
+    } else {
+      vi = speed;
+    }
+    this.vx = saveDecimal(Math.random() / vi[0]);
+    this.vy = saveDecimal(Math.random() / vi[1]);
   }
 
-  private initSize() {
-    this.size = (1 + Math.random()) * 1.5;
+  private initSize(size: number) {
+    this.size = (1 + Math.random()) * size;
   }
 
   private initColor() {
