@@ -11,7 +11,6 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     const stage: Stage = new Stage(this.stageRef.nativeElement);
-    stage.particle();
     stage.drawContext();
   }
 }
