@@ -3,6 +3,9 @@ export class Stage {
   private width: number;
   private height: number;
 
+  private x = 0;
+  private y = 0;
+
   constructor(canvas: HTMLCanvasElement) {
     this.ctx = canvas.getContext('2d');
     const {clientWidth, clientHeight} = canvas.parentElement;
@@ -14,15 +17,20 @@ export class Stage {
     return [this.width, this.height];
   }
 
-  drawContext = () => {
+  particle() {
+    this.x = this.width * Math.random();
+    this.y = this.height * Math.random();
+    this.ctx.translate(this.x, this.y);
     this.ctx.beginPath();
-    this.ctx.translate(105, 0);
-    this.ctx.arc(100, 75, (1 + Math.random()) * 10, 0, 2 * Math.PI);
+    this.ctx.arc(this.x, this.y, (1 + Math.random() * 6), 0, 2 * Math.PI);
     const color = `rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`;
     this.ctx.fillStyle = color;
     this.ctx.strokeStyle = color;
     this.ctx.fill();
     this.ctx.stroke();
+  }
+
+  drawContext = () => {
     window.requestAnimationFrame(this.drawContext);
   };
 
