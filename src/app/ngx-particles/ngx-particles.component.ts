@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, HostListener, OnDestroy, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, Input, OnDestroy, ViewChild} from '@angular/core';
 import {Particle} from './particle';
 
 @Component({
@@ -11,12 +11,14 @@ export class NgxParticlesComponent implements AfterViewInit, OnDestroy {
 
   private canvas: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
-  private width: number;
-  private height: number;
   private particles: Particle[] = [];
   private mainAnimationFrame: any;
   private changeAnimationFrame: any;
   private resizing: any = false;
+
+  @Input() total = 100;
+  @Input() width: number;
+  @Input() height: number;
 
   ngAfterViewInit() {
     this.canvas = this.stageRef.nativeElement;
@@ -46,13 +48,21 @@ export class NgxParticlesComponent implements AfterViewInit, OnDestroy {
 
   private initStage() {
     const {clientWidth, clientHeight} = this.canvas.parentElement;
-    this.canvas.width = this.width = clientWidth;
-    this.canvas.height = this.height = clientHeight;
+    if (this.width) {
+      this.canvas.width = this.width;
+    } else {
+      this.canvas.width = this.width = clientWidth;
+    }
+    if (this.height) {
+      this.canvas.height = this.height;
+    } else {
+      this.canvas.height = this.height = clientHeight;
+    }
   }
 
   private initParticle() {
     const range = [this.width, this.height];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < this.total; i++) {
       this.particles[i] = new Particle(range);
     }
   }
