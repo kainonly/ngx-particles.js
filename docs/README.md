@@ -8,7 +8,7 @@
 > A lightweight particle backgrounds plugin for Angular
 
 - [Demo](https://particle.kain.net.cn/)
-- [v1 Document](v1)
+- [v1 Document](https://kainonly.github.io/ngx-particles.js/#/v1)
 
 ## Install
 
