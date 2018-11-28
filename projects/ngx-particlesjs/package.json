@@ -1,8 +1,25 @@
 {
   "name": "ngx-particlesjs",
   "version": "2.0.0",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
-  }
+  },
+  "keywords": [
+    "Angular",
+    "Particles"
+  ],
+  "author": {
+    "name": "kain",
+    "email": "zhangtqx@vip.qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kainonly/ngx-particles.js"
+  },
+  "bugs": {
+    "url": "https://github.com/kainonly/ngx-particles.js/issues"
+  },
+  "homepage": "https://kainonly.github.io/ngx-particles.js/"
 }

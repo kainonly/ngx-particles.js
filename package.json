@@ -4,6 +4,7 @@
     "start": "ng serve --host 0.0.0.0 --disable-host-check",
     "build:demo": "ng build --prod",
     "build:lib": "ng build ngx-particlesjs",
+    "release": "cd dist/ngx-particlesjs && npm publish",
     "docs": "docsify serve ./docs"
   },
   "private": true,
