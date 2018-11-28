@@ -18,10 +18,10 @@
       "dom"
     ],
     "paths": {
-      "ngx-particlesjs": [
+      "ngx-particlesjs-dev": [
         "dist/ngx-particlesjs"
       ],
-      "ngx-particlesjs/*": [
+      "ngx-particlesjs-dev/*": [
         "dist/ngx-particlesjs/*"
       ]
     }
