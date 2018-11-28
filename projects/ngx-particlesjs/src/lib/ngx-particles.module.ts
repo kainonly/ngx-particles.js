@@ -6,5 +6,5 @@ import {NgxParticlesComponent} from './ngx-particles.component';
   declarations: [NgxParticlesComponent],
   exports: [NgxParticlesComponent]
 })
-export class NgxParticlesjsModule {
+export class NgxParticlesModule {
 }
