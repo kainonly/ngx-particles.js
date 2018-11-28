@@ -13,7 +13,6 @@ import {ParticleArgs} from './common';
     #stage {
       height: 100%;
       width: 100%;
-      border: 1px rgba(0, 0, 0, 0.1) dashed;
       will-change: all;
     }
   `]
