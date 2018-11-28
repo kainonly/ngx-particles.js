@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+
 import {NgxParticlesModule} from 'ngx-particlesjs';
 
 import {AppComponent} from './app.component';
