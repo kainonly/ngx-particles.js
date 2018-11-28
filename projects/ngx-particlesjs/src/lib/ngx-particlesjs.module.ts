@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { NgxParticlesjsComponent } from './ngx-particlesjs.component';
+import {NgModule} from '@angular/core';
+import {NgxParticlesComponent} from './ngx-particles.component';
 
 @NgModule({
-  imports: [
-  ],
-  declarations: [NgxParticlesjsComponent],
-  exports: [NgxParticlesjsComponent]
+  imports: [],
+  declarations: [NgxParticlesComponent],
+  exports: [NgxParticlesComponent]
 })
-export class NgxParticlesjsModule { }
+export class NgxParticlesjsModule {
+}
