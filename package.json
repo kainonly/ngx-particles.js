@@ -2,7 +2,8 @@
   "name": "ngx-particles-demo",
   "scripts": {
     "start": "ng serve --host 0.0.0.0 --disable-host-check",
-    "build": "ng build ngx-particlesjs"
+    "build:demo": "ng build --prod",
+    "build:lib": "ng build ngx-particlesjs"
   },
   "private": true,
   "dependencies": {
