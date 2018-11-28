@@ -3,7 +3,8 @@
   "scripts": {
     "start": "ng serve --host 0.0.0.0 --disable-host-check",
     "build:demo": "ng build --prod",
-    "build:lib": "ng build ngx-particlesjs"
+    "build:lib": "ng build ngx-particlesjs",
+    "docs": "docsify serve ./docs"
   },
   "private": true,
   "dependencies": {
